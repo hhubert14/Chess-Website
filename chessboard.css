@@ -1,0 +1,36 @@
+body {
+  background: #1f1e1e;
+}
+
+h1 {
+  color:white;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.chessboard {
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 3px solid #1f1e1e;
+}
+
+.light {
+  background-color: #f0d9b5;
+}
+
+.dark {
+  background-color: #c27e47;
+}
+
+.cell td {
+  text-align: center;
+  width:75px;
+  height:75px;
+}
+
+.cell img {
+  width: 70px;
+  height: auto;
+}
+
