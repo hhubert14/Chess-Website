@@ -2,6 +2,7 @@ const themeButton = document.getElementById("theme-button");
 const textArea = document.getElementById("feedback");
 const name = document.getElementById("name");
 
+
 const toggleDarkMode = () => {
   document.body.classList.toggle("dark-mode");
   themeButton.classList.toggle("theme-button-dark");
