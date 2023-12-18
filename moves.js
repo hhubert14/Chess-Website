@@ -134,13 +134,93 @@ function checkValidMove(destPiece,destSquare){
         }
         break;
       case "bishop":
-
+        for(let i = 1; i < 8; i++) {
+          validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0) + i) + String.fromCharCode(pieceSquare.charCodeAt(1) + i));
+        }
+        for(let i = 1; i < 8; i++) {
+          validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0) + i) + String.fromCharCode(pieceSquare.charCodeAt(1) - i));
+        }
+        for(let i = 1; i < 8; i++) {
+          validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0) - i) + String.fromCharCode(pieceSquare.charCodeAt(1) + i));
+        }
+        for(let i = 1; i < 8; i++) {
+          validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0) - i) + String.fromCharCode(pieceSquare.charCodeAt(1) - i));
+        }
+        console.log(validSquares);
+        if(validSquares.includes(destSquare)){
+          if(interceptingPiece(pieceSquare,destSquare)){
+            return false;
+          }
+          return true;
+        }
+        break;
       case "rook":
-
+        for(let i = 1; i < 8; i++) {
+          validSquares.push(pieceSquare.charAt(0) + (Number(pieceSquare.charAt(1)) + i));
+        }
+        for(let i = 1; i < 8; i++) {
+          validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0) + i) + String.fromCharCode(pieceSquare.charCodeAt(1)));
+        }
+        for(let i = 1; i < 8; i++) {
+          validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0) - i) + String.fromCharCode(pieceSquare.charCodeAt(1)));
+        }
+        for(let i = 1; i < 8; i++) {
+          validSquares.push(pieceSquare.charAt(0) + (Number(pieceSquare.charAt(1)) - i));
+        }
+        console.log(validSquares);
+        if(validSquares.includes(destSquare)){
+          if(interceptingPiece(pieceSquare,destSquare)){
+            return false;
+          }
+          return true;
+        }
+        break;
       case "queen":
-
+        for(let i = 1; i < 8; i++) {
+          validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0) + i) + String.fromCharCode(pieceSquare.charCodeAt(1) + i));
+        }
+        for(let i = 1; i < 8; i++) {
+          validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0) + i) + String.fromCharCode(pieceSquare.charCodeAt(1) - i));
+        }
+        for(let i = 1; i < 8; i++) {
+          validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0) - i) + String.fromCharCode(pieceSquare.charCodeAt(1) + i));
+        }
+        for(let i = 1; i < 8; i++) {
+          validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0) - i) + String.fromCharCode(pieceSquare.charCodeAt(1) - i));
+        }
+        for(let i = 1; i < 8; i++) {
+          validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0)) + String.fromCharCode(pieceSquare.charCodeAt(1) + i));
+        }
+        for(let i = 1; i < 8; i++) {
+          validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0) + i) + String.fromCharCode(pieceSquare.charCodeAt(1)));
+        }
+        for(let i = 1; i < 8; i++) {
+          validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0) - i) + String.fromCharCode(pieceSquare.charCodeAt(1)));
+        }
+        for(let i = 1; i < 8; i++) {
+          validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0)) + String.fromCharCode(pieceSquare.charCodeAt(1) - i));
+        }
+        console.log(validSquares);
+        if(validSquares.includes(destSquare)){
+          if(interceptingPiece(pieceSquare,destSquare)){
+            return false;
+          }
+          return true;
+        }
+        break;
       case "king":
-
+        validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0) + 1) + String.fromCharCode(pieceSquare.charCodeAt(1) + 1));
+        validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0) + 1) + String.fromCharCode(pieceSquare.charCodeAt(1) - 1));
+        validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0) - 1) + String.fromCharCode(pieceSquare.charCodeAt(1) + 1));
+        validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0) - 1) + String.fromCharCode(pieceSquare.charCodeAt(1) - 1));
+        validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0) + 1) + String.fromCharCode(pieceSquare.charCodeAt(1)));
+        validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0) - 1) + String.fromCharCode(pieceSquare.charCodeAt(1)));
+        validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0)) + String.fromCharCode(pieceSquare.charCodeAt(1) + 1));
+        validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0)) + String.fromCharCode(pieceSquare.charCodeAt(1) - 1));
+        if(validSquares.includes(destSquare)){
+          return true;
+        }
+        break;
       default:
         return false;
     }
@@ -179,13 +259,89 @@ function checkValidMove(destPiece,destSquare){
         }
         break;
       case "bishop":
-
+        for(let i = 1; i < 8; i++) {
+          validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0) + i) + String.fromCharCode(pieceSquare.charCodeAt(1) + i));
+        }
+        for(let i = 1; i < 8; i++) {
+          validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0) + i) + String.fromCharCode(pieceSquare.charCodeAt(1) - i));
+        }
+        for(let i = 1; i < 8; i++) {
+          validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0) - i) + String.fromCharCode(pieceSquare.charCodeAt(1) + i));
+        }
+        for(let i = 1; i < 8; i++) {
+          validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0) - i) + String.fromCharCode(pieceSquare.charCodeAt(1) - i));
+        }
+        console.log(validSquares);
+        if(validSquares.includes(destSquare)){
+          if(interceptingPiece(pieceSquare,destSquare)){
+            return false;
+          }
+          return true;
+        }
       case "rook":
-
+        for(let i = 1; i < 8; i++) {
+          validSquares.push(pieceSquare.charAt(0) + (Number(pieceSquare.charAt(1)) + i));
+        }
+        for(let i = 1; i < 8; i++) {
+          validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0) + i) + String.fromCharCode(pieceSquare.charCodeAt(1)));
+        }
+        for(let i = 1; i < 8; i++) {
+          validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0) - i) + String.fromCharCode(pieceSquare.charCodeAt(1)));
+        }
+        for(let i = 1; i < 8; i++) {
+          validSquares.push(pieceSquare.charAt(0) + (Number(pieceSquare.charAt(1)) - i));
+        }
+        console.log(validSquares);
+        if(validSquares.includes(destSquare)){
+          if(interceptingPiece(pieceSquare,destSquare)){
+            return false;
+          }
+          return true;
+        }
       case "queen":
-
+        for(let i = 1; i < 8; i++) {
+          validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0) + i) + String.fromCharCode(pieceSquare.charCodeAt(1) + i));
+        }
+        for(let i = 1; i < 8; i++) {
+          validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0) + i) + String.fromCharCode(pieceSquare.charCodeAt(1) - i));
+        }
+        for(let i = 1; i < 8; i++) {
+          validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0) - i) + String.fromCharCode(pieceSquare.charCodeAt(1) + i));
+        }
+        for(let i = 1; i < 8; i++) {
+          validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0) - i) + String.fromCharCode(pieceSquare.charCodeAt(1) - i));
+        }
+        for(let i = 1; i < 8; i++) {
+          validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0)) + String.fromCharCode(pieceSquare.charCodeAt(1) + i));
+        }
+        for(let i = 1; i < 8; i++) {
+          validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0) + i) + String.fromCharCode(pieceSquare.charCodeAt(1)));
+        }
+        for(let i = 1; i < 8; i++) {
+          validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0) - i) + String.fromCharCode(pieceSquare.charCodeAt(1)));
+        }
+        for(let i = 1; i < 8; i++) {
+          validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0)) + String.fromCharCode(pieceSquare.charCodeAt(1) - i));
+        }
+        console.log(validSquares);
+        if(validSquares.includes(destSquare)){
+          if(interceptingPiece(pieceSquare,destSquare)){
+            return false;
+          }
+          return true;
+        }
       case "king":
-
+        validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0) + 1) + String.fromCharCode(pieceSquare.charCodeAt(1) + 1));
+        validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0) + 1) + String.fromCharCode(pieceSquare.charCodeAt(1) - 1));
+        validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0) - 1) + String.fromCharCode(pieceSquare.charCodeAt(1) + 1));
+        validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0) - 1) + String.fromCharCode(pieceSquare.charCodeAt(1) - 1));
+        validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0) + 1) + String.fromCharCode(pieceSquare.charCodeAt(1)));
+        validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0) - 1) + String.fromCharCode(pieceSquare.charCodeAt(1)));
+        validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0)) + String.fromCharCode(pieceSquare.charCodeAt(1) + 1));
+        validSquares.push(String.fromCharCode(pieceSquare.charCodeAt(0)) + String.fromCharCode(pieceSquare.charCodeAt(1) - 1));
+        if(validSquares.includes(destSquare)){
+          return true;
+        }
       default:
         return false;
 
@@ -193,12 +349,46 @@ function checkValidMove(destPiece,destSquare){
   }
 }
 
-/*function interceptingPiece(startSquare, endSquare){
+function interceptingPiece(startSquare, endSquare){
   if(startSquare.charAt(0)===endSquare.charAt(0)){
-    for(let i=startSquare.charAt(1);i<endSquare.charAt(1);i++){
-      if(document.getElementById(startSquare.charAt(0)+i).firstChild!==null){
+    const minSquare = Math.min(startSquare.charCodeAt(1), endSquare.charCodeAt(1));
+    const maxSquare = Math.max(startSquare.charCodeAt(1), endSquare.charCodeAt(1));
+    for(let i=minSquare+1;i<maxSquare;i++){
+      const square = document.getElementById(startSquare.charAt(0)+String.fromCharCode(i));
+      if(square && square.firstChild!==null){
         return true;
       }
     }
   }
-}*/
+  else if(startSquare.charAt(1)===endSquare.charAt(1)){
+    const minSquare = Math.min(startSquare.charCodeAt(0), endSquare.charCodeAt(0));
+    const maxSquare = Math.max(startSquare.charCodeAt(0), endSquare.charCodeAt(0));
+    for(let i=minSquare+1;i<maxSquare;i++){
+      const letter = String.fromCharCode(i);
+      const square = document.getElementById(letter+startSquare.charAt(1));
+      if(square && square.firstChild!==null){
+        return true;
+      }
+    }
+  }
+  else if(Math.abs(startSquare.charCodeAt(0) - endSquare.charCodeAt(0)) === Math.abs(startSquare.charCodeAt(1) - endSquare.charCodeAt(1))){
+    let minSquare, maxSquare;
+    if (startSquare.charCodeAt(0) < endSquare.charCodeAt(0)) {
+      minSquare = startSquare;
+      maxSquare = endSquare;
+    } else {
+      minSquare = endSquare;
+      maxSquare = startSquare;
+    }
+    let increment = minSquare.charCodeAt(1) < maxSquare.charCodeAt(1) ? 1 : -1;
+    for(let i = 1; i < Math.abs(minSquare.charCodeAt(0) - maxSquare.charCodeAt(0)); i++){
+      const letter = String.fromCharCode(minSquare.charCodeAt(0) + i);
+      const number = String.fromCharCode(minSquare.charCodeAt(1) + i * increment);
+      const square = document.getElementById(letter + number);
+      if(square && square.firstChild !== null){
+        return true;
+      }
+    }
+  }
+  return false;
+}
