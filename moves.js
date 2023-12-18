@@ -79,7 +79,7 @@ function endDrag(event) {
       event.target.parentNode.replaceChild(selectedSquare,event.target);
     }
   }
-  else {
+  else if(event.target.firstChild===null) {
     destSquare = event.target.id;
     console.log('Destination square is:', destSquare);
     if (checkValidMove(destPiece, destSquare)) {

@@ -30,6 +30,7 @@ h1 {
 }
 
 .cell img {
+  object-fit: contain;
   width: 70px;
   height: auto;
   z-index: 1;
