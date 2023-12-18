@@ -43,3 +43,4 @@ Check the website regularly for updates and new additions.
 - Add documentations for openings
 - Limit users to make specific moves for different openings
 - Add chess engine (Stockfish) with real-time analysis to board
+- Create analysis board so users can explore openings on their own
