@@ -40,13 +40,13 @@ Check the website regularly for updates and new additions.
 - Create database for storing user feedback
 - Allow users to create account
 - Make pieces interactable (Hubert)
- - Allow user to promote when pawn reaches end of board
- - en passant
- - castling
- - Keep track of whose turn it is
- - make sure pinned pieces cannot move
- - make sure user must respond to checks
- - implement checkmate screen
+  - Allow user to promote when pawn reaches end of board
+  - en passant
+  - castling
+  - Keep track of whose turn it is
+  - make sure pinned pieces cannot move
+  - make sure user must respond to checks
+  - implement checkmate screen
 - Add documentations for openings
 - Limit users to make specific moves for different openings
 - Add chess engine (Stockfish) with real-time analysis to board
