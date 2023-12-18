@@ -42,3 +42,4 @@ Check the website regularly for updates and new additions.
 - Make pieces interactable (Hubert)
 - Add documentations for openings
 - Limit users to make specific moves for different openings
+- Add chess engine (Stockfish) with real-time analysis to board
