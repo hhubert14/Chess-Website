@@ -193,7 +193,7 @@ function checkValidMove(destPiece,destSquare){
   }
 }
 
-function interceptingPiece(startSquare, endSquare){
+/*function interceptingPiece(startSquare, endSquare){
   if(startSquare.charAt(0)===endSquare.charAt(0)){
     for(let i=startSquare.charAt(1);i<endSquare.charAt(1);i++){
       if(document.getElementById(startSquare.charAt(0)+i).firstChild!==null){
@@ -201,4 +201,4 @@ function interceptingPiece(startSquare, endSquare){
       }
     }
   }
-}
+}*/
