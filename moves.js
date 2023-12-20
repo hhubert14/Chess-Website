@@ -1,3 +1,4 @@
+
 /*knight = document.getElementById('g1')
 pawn = document.getElementById('f2')
 bishop = document.getElementById('c1')
