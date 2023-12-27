@@ -1,65 +1,12 @@
-
-/*knight = document.getElementById('g1')
-pawn = document.getElementById('f2')
-bishop = document.getElementById('c1')
-
-const knightMoves = ['f3'];
-const pawnMoves = ['f3', 'f4'];
-const bishopMoves = ['g4'];
-
-const moves = new Map();
-moves.set(knight, knightMoves);
-moves.set(pawn, pawnMoves);
-moves.set(bishop, bishopMoves);
-
-dot = document.createElement('td');
-img = new Image();
-img.src = "img/red_dot.jpg";
-dot.appendChild(img);
-
-blank = document.createElement('td');
-
-knight.addEventListener('click', knightMove);
-dot.addEventListener('click', knightGoto);
-
-function knightMove(){
-  console.log("clicked");
-  dest = document.getElementById('f3');                 //Support for later change to map implementation (i.e., possible destinations stored and retrieved from map queries)
-  dot.className = dest.className;
-  dot.id = dest.id;
-  dest.replaceWith(dot);  
-}
-
-function knightGoto(){
-  knight_copy = knight.cloneNode(true);
-  knight_copy.className = dot.className;
-  knight_copy.id = dot.id;
-  dot.replaceWith(knight_copy);
-  blank.className = knight.className;
-  knight.replaceWith(blank);
-}
-*/
-
-/*document.addEventListener('click', checkValidMove);
-
-function checkValidMove(piece, dest){
-  if(piece.id == dest.id){
-    return false;
-  }
-  if(piece.className == dest.className){
-    return false;
-  }
-  return true;
-}
-*/
-
 let selectedPieceName = null;
 let pieceColor = null;
 let pieceSquare = null;
 let selectedSquare = null;
-// let page = window.location.pathname;
-// console.log('Current page is' + page);
+let validMoves = [];
 
+const movable = ['g1', 'f2', 'c1']
+
+showMovable();
 document.addEventListener('mousedown', startDrag);
 document.addEventListener('mouseup', endDrag);
 
@@ -75,6 +22,15 @@ function startDrag(event) {
     // Get the square element that contains the selected piece
     pieceSquare = selectedSquare.parentNode.id;
     console.log('Selected piece is on square:', pieceSquare);
+    movable.forEach((square) =>{
+        if(square !== pieceSquare){
+            unhighlight(square);
+        }
+    });
+    getValidMoves(selectedPieceName);
+    validMoves.forEach((loc) => {
+        highlight(loc);
+    })
   }
 }
 
@@ -98,12 +54,51 @@ function endDrag(event) {
       event.target.appendChild(selectedSquare);
     }
   }
-  
+  validMoves.forEach((loc) => unhighlight(loc));
+  unhighlight(pieceSquare);
+  validMoves = [];
+}
 
+function showMovable(){
+    movable.forEach((square)=>{highlight(square)});
+}
+
+function highlight(square){
+    updatedSquare = document.getElementById(square);
+        if(updatedSquare.className === 'dark'){
+            updatedSquare.className = 'dark-highlight';
+        }
+        else if(updatedSquare.className === 'light'){
+            updatedSquare.className = 'light-highlight';
+        }
+}
+
+function unhighlight(square){
+    updatedSquare = document.getElementById(square);
+        if(updatedSquare.className === 'dark-highlight'){
+            updatedSquare.className = 'dark';
+        }
+        else if(updatedSquare.className === "light-highlight"){
+            updatedSquare.className = 'light';
+        }
+}
+
+function getValidMoves(pieceName){
+    switch(pieceName){
+        case 'knight':
+            validMoves.push('f3');
+            break;
+        case 'pawn':
+            validMoves.push('f3', 'f4');
+            break;
+        case 'bishop':
+            validMoves.push('g5');
+            break;
+    }
 }
 
 function checkValidMove(destPiece,destSquare){
-  let validSquares=[];
+    let validSquares = [];
 
   // Check if piece is moving to same square
   if (pieceSquare === destSquare) {

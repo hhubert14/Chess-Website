@@ -23,6 +23,16 @@ h1 {
   background-color: #c27e47;
 }
 
+.light-highlight{
+  background-color: #f0d9b5;
+  border: 3px dashed red;
+}
+
+.dark-highlight{
+  background-color: #c27e47;
+  border: 3px dashed red;
+}
+
 .cell td {
   text-align: center;
   width:75px;
@@ -35,3 +45,4 @@ h1 {
   height: auto;
   z-index: 1;
 }
+
